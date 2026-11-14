@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+Frontend/node_modules/
+venv/
+.venv/
+Backend-rag/venv/
+
+# Environment variables & secrets
+.env
+Frontend/.env
+Backend-rag/.env
+*.env.local
+
+# Build outputs
+dist/
+Frontend/dist/
+build/
+Backend-rag/build/
+*.egg-info/
+
+# Python cache & test artifacts
+__pycache__/
+Backend-rag/**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+*.db
+*.sqlite3
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
