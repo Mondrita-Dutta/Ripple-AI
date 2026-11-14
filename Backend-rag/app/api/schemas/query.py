@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 
 class StoryQueryRequest(BaseModel):
     story_id: str = Field(..., description="Target story identifier")
-    query: str = Field(..., min_length=3, description="Writer question about lore, plot, or character")
+    query: str = Field(..., min_length=1, description="Writer question about lore, plot, or character")
     top_k: int = Field(default=4, ge=1, le=20, description="Number of evidence chunks to retrieve")
 
 

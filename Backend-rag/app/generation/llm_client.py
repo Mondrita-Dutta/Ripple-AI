@@ -113,17 +113,32 @@ class LLMClient:
 
     def _generate_mock_response(self, prompt: str) -> str:
         """Dynamic response synthesizer for mock mode extracting context evidence."""
+        # Extract the user query
+        query = ""
+        if "Writer's Question:" in prompt:
+            parts = prompt.split("Writer's Question:")
+            if len(parts) > 1:
+                query = parts[1].split("Answer")[0].strip()
+
         if "story_qa" in prompt or "Writer's Question" in prompt:
             if "=== MANUSCRIPT EXCERPTS ===" in prompt:
-                # Extract the first source excerpt lines
                 parts = prompt.split("=== MANUSCRIPT EXCERPTS ===")
-                if len(parts) > 1:
-                    excerpt_block = parts[1].strip()
-                    lines = [l.strip() for l in excerpt_block.split("\n") if l.strip() and not l.startswith("[Source")]
-                    first_sent = lines[0] if lines else "the retrieved scene events"
-                    return f"According to [Source #1], {first_sent}"
-                return "According to [Source #1], the sequence of events is confirmed by the narrative text."
-            return "This event is not documented in the current manuscript or canon."
+                excerpt_block = parts[1].split("Writer's Question:")[0].strip() if len(parts) > 1 else ""
+                lines = [l.strip() for l in excerpt_block.split("\n") if l.strip() and not l.startswith("[Source")]
+                if lines:
+                    return f"According to [Source #1], {lines[0]}"
+
+            q_lower = query.lower()
+            if q_lower in ("hi", "hello", "hey"):
+                return "Hello! I'm your lore assistant. Your backend is fully connected and responding! Ask me about characters, chapters, or the Ember Gate."
+            if "antagonist" in q_lower:
+                return "In The Ember Archives, the primary antagonist is Lord Vane of the Ashen Gate, who seeks to harness the forbidden Ember Core."
+            if "chapter 12" in q_lower:
+                return "Chapter 12 ('The Ashen Gate'): Mira and Kael breach the outer threshold, discovering that the ancient seal has already begun to fracture."
+            if "ember gate" in q_lower:
+                return "The Ember Gate is a colossal pre-cataclysm gateway located at the boundary of the Northern Reach, sealed four centuries ago by the Old King."
+
+            return f"Received question: \"{query}\". (Mock Mode: Frontend and backend are connected! You can also connect Gemini or OpenAI in .env for full AI generation.)"
 
         if "continuity_check" in prompt:
             return json.dumps({
