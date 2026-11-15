@@ -1,3 +1,5 @@
+<img width="1903" height="811" alt="ripple frontend ss" src="https://github.com/user-attachments/assets/fe61676f-8fb8-4d33-bcf8-40fbe7e7eafd" />
+<img width="1903" height="811" alt="ripple frontend" src="https://github.com/user-attachments/assets/e32c88a4-190b-40e8-8fba-df41ebda12ce" />
 # ✨ Ripple AI
 
 **Narrative Intelligence & Lore-Aware Storytelling Workspace**  
