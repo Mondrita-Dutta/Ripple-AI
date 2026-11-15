@@ -2,11 +2,11 @@
 
 import re
 from typing import List, Tuple
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session # type: ignore
 from app.database.models import StoryChunk
 
 try:
-    from rank_bm25 import BM25Okapi
+    from rank_bm25 import BM25Okapi # type: ignore
     HAS_BM25 = True
 except ImportError:
     HAS_BM25 = False
@@ -38,7 +38,7 @@ class SparseRetriever:
 
         if HAS_BM25:
             corpus = [_tokenize(c.content) for c in chunks]
-            bm25 = BM25Okapi(corpus)
+            bm25 = BM25Okapi(corpus) # pyright: ignore[reportPossiblyUnboundVariable]
             doc_scores = bm25.get_scores(query_tokens)
             ranked_pairs = list(zip(chunks, doc_scores))
             ranked_pairs.sort(key=lambda x: x[1], reverse=True)

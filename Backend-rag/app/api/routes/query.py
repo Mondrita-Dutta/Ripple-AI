@@ -1,7 +1,7 @@
 """API route for asking questions about stories (Pipeline B)."""
 
 from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session # type: ignore
 from app.database.connection import get_db
 from app.api.schemas.query import StoryQueryRequest, StoryQueryResponse
 from app.pipelines.rag_pipeline import RAGPipeline

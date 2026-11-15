@@ -1,8 +1,8 @@
 """Unit tests for deterministic continuity rules and contradiction detector."""
 
 import pytest
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine # type: ignore
+from sqlalchemy.orm import sessionmaker # type: ignore
 from app.database.models import Base, Story, CanonEntity, CanonFact
 from app.continuity.rules_engine import DeterministicRulesEngine
 

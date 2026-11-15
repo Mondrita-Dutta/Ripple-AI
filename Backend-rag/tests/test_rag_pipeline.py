@@ -1,8 +1,8 @@
 """End-to-end integration tests for Indexing and RAG pipelines."""
 
 import pytest
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine # type: ignore
+from sqlalchemy.orm import sessionmaker # type: ignore
 from app.database.models import Base
 from app.ingestion.embedder import Embedder
 from app.retrieval.dense_retriever import DenseRetriever

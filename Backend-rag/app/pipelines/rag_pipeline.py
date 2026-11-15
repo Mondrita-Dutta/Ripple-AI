@@ -1,7 +1,7 @@
 """Pipeline B: Hybrid retrieval, reranking, grounded generation, and verification."""
 
 from typing import Dict, Any
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session # type: ignore
 from app.retrieval.hybrid_retriever import HybridRetriever
 from app.retrieval.reranker import Reranker
 from app.generation.generator import Generator
@@ -14,8 +14,8 @@ class RAGPipeline:
 
     def __init__(
         self,
-        hybrid_retriever: HybridRetriever = None,
-        generator: Generator = None,
+        hybrid_retriever: HybridRetriever = None, # pyright: ignore[reportArgumentType]
+        generator: Generator = None, # pyright: ignore[reportArgumentType]
     ):
         self.retriever = hybrid_retriever or HybridRetriever()
         self.reranker = Reranker()

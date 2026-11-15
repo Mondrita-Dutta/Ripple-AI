@@ -1,8 +1,7 @@
 """Graph service for building and querying the narrative CanonGraph."""
 
 from typing import List, Dict, Any, Optional
-import networkx as nx
-from sqlalchemy.orm import Session
+import networkx as nx # type: ignore
 from app.database.models import CanonEntity, CanonRelationship, CanonFact
 
 
@@ -10,7 +9,7 @@ class CanonGraphService:
     """Manages in-memory graph representation and topological lookups for a story."""
 
     @classmethod
-    def build_graph_for_story(cls, db: Session, story_id: str) -> nx.DiGraph:
+    def build_graph_for_story(cls, db: Any, story_id: str) -> nx.DiGraph:
         """Constructs a NetworkX directed multigraph from database entities and relationships."""
         graph = nx.DiGraph()
 

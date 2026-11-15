@@ -1,7 +1,7 @@
 """Retrieves grounded canon facts and entity relationships from CanonGraph."""
 
 from typing import List, Dict, Any
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session # pyright: ignore[reportMissingImports]
 from app.canon_graph.graph_service import CanonGraphService
 from app.canon_graph.fact_store import FactStore
 from app.database.models import CanonEntity

@@ -1,7 +1,6 @@
 """Fact store management for story canon."""
 
-from typing import List, Optional
-from sqlalchemy.orm import Session
+from typing import Any, List, Optional
 from app.database.models import CanonFact, CanonEntity
 
 
@@ -10,7 +9,7 @@ class FactStore:
 
     @staticmethod
     def propose_fact(
-        db: Session,
+        db: Any,
         story_id: str,
         statement: str,
         entity_id: Optional[str] = None,
@@ -37,7 +36,7 @@ class FactStore:
 
     @staticmethod
     def update_fact_status(
-        db: Session,
+        db: Any,
         fact_id: str,
         status: str,
     ) -> Optional[CanonFact]:
@@ -51,7 +50,7 @@ class FactStore:
 
     @staticmethod
     def get_canon_facts(
-        db: Session,
+        db: Any,
         story_id: str,
         only_approved: bool = True,
         entity_id: Optional[str] = None,

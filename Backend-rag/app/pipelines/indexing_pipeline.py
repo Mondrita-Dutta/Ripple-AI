@@ -1,7 +1,7 @@
 """Pipeline A: Ingestion, scene-aware chunking, embedding, and fact extraction."""
 
 from typing import Dict, Any
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session # type: ignore
 from app.database.models import Chapter, Story
 from app.ingestion.loader import DocumentLoader
 from app.ingestion.preprocessor import TextPreprocessor
@@ -15,7 +15,7 @@ from app.core.logging import logger
 class IndexingPipeline:
     """Orchestrates Pipeline A (Chapter ingestion to indexed vector & canon knowledge)."""
 
-    def __init__(self, embedder: Embedder = None, chunker: SceneAwareChunker = None):
+    def __init__(self, embedder: Embedder = None, chunker: SceneAwareChunker = None): # pyright: ignore[reportArgumentType]
         self.chunker = chunker or SceneAwareChunker()
         self.embedder = embedder or Embedder()
         self.fact_extractor = FactExtractor()

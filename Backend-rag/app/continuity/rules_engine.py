@@ -1,7 +1,7 @@
 """Deterministic continuity rules engine for hard narrative constraints."""
 
 from typing import List, Dict, Any, Optional
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session # pyright: ignore[reportMissingImports]
 from app.database.models import CanonFact, CanonEntity
 
 

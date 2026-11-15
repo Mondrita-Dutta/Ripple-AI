@@ -10,7 +10,7 @@ class ContextBuilder:
     @staticmethod
     def build_context(
         chunks: List[Tuple[StoryChunk, float]],
-        graph_context: Dict[str, Any] = None,
+        graph_context: Dict[str, Any] = None, # pyright: ignore[reportArgumentType]
     ) -> str:
         """Formats evidence passages and approved facts into grounded narrative context."""
         context_parts: List[str] = []

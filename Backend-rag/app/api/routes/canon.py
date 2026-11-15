@@ -2,7 +2,7 @@
 
 from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException, status, Query
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session # type: ignore
 from app.database.connection import get_db
 from app.database.models import CanonEntity, CanonFact, CanonRelationship
 from app.canon_graph.fact_store import FactStore

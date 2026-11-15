@@ -1,8 +1,8 @@
 """Database session and connection management."""
 
 from typing import Generator
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, Session
+from sqlalchemy import create_engine # type: ignore
+from sqlalchemy.orm import sessionmaker, Session # type: ignore
 from app.core.config import get_settings
 from app.core.logging import logger
 from app.database.models import Base

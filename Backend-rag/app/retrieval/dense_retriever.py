@@ -1,7 +1,7 @@
 """Dense vector retrieval using embeddings and cosine similarity."""
 
 from typing import List, Tuple
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session # type: ignore
 from app.database.models import StoryChunk
 from app.database.vector_store import VectorStore
 from app.ingestion.embedder import Embedder
@@ -10,7 +10,7 @@ from app.ingestion.embedder import Embedder
 class DenseRetriever:
     """Performs semantic similarity search over story chunk embeddings."""
 
-    def __init__(self, embedder: Embedder = None):
+    def __init__(self, embedder: Embedder = None): # pyright: ignore[reportArgumentType]
         self.embedder = embedder or Embedder()
 
     def retrieve(

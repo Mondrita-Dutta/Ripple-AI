@@ -1,8 +1,8 @@
 """Ripple Analyzer for counterfactual what-if analysis and dependency impact."""
 
 from typing import Dict, Any, List, Optional
-import networkx as nx
-from sqlalchemy.orm import Session
+import networkx as nx # type: ignore
+from sqlalchemy.orm import Session # type: ignore
 from app.database.models import CanonFact, CanonEntity, Chapter
 from app.canon_graph.graph_service import CanonGraphService
 from app.core.config import get_settings

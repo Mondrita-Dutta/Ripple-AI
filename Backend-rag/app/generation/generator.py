@@ -10,14 +10,14 @@ from app.generation.llm_client import LLMClient
 class Generator:
     """Generates answers with grounded narrative context."""
 
-    def __init__(self, llm_client: LLMClient = None):
+    def __init__(self, llm_client: LLMClient = None): # pyright: ignore[reportArgumentType]
         self.llm_client = llm_client or LLMClient()
 
     def generate_answer(
         self,
         query: str,
         retrieved_chunks: List[Tuple[StoryChunk, float]],
-        graph_context: Dict[str, Any] = None,
+        graph_context: Dict[str, Any] = None, # pyright: ignore[reportArgumentType]
     ) -> Dict[str, Any]:
         """Builds grounded context and queries LLM for an answer."""
         context_str = ContextBuilder.build_context(retrieved_chunks, graph_context)

@@ -1,7 +1,7 @@
 """API route for contradiction checking and continuity audits."""
 
 from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session # type: ignore
 from app.database.connection import get_db
 from app.api.schemas.continuity import ContinuityCheckRequest, ContinuityCheckResponse
 from app.continuity.contradiction import ContradictionDetector
@@ -30,7 +30,7 @@ def check_continuity(
             story_id=payload.story_id,
             chapter_index=payload.chapter_index,
             text=payload.manuscript_text,
-            mentioned_characters=payload.mentioned_characters,
+            mentioned_characters=payload.mentioned_characters, # pyright: ignore[reportArgumentType]
         )
         return result
     except Exception as exc:

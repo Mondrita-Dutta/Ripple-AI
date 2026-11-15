@@ -12,7 +12,7 @@ settings = get_settings()
 class Embedder:
     """Generates dense vector representations for narrative text."""
 
-    def __init__(self, model_name: str = None, dimension: int = None, local_fallback: bool = None):
+    def __init__(self, model_name: str = None, dimension: int = None, local_fallback: bool = None): # pyright: ignore[reportArgumentType]
         self.model_name = model_name or settings.EMBEDDING_MODEL_NAME
         self.dimension = dimension or settings.EMBEDDING_DIM
         if local_fallback is not None:
@@ -26,7 +26,7 @@ class Embedder:
     def _initialize_model(self) -> None:
         """Loads sentence-transformers model if available, else logs fallback."""
         try:
-            from sentence_transformers import SentenceTransformer
+            from sentence_transformers import SentenceTransformer # type: ignore
             self._model = SentenceTransformer(self.model_name)
             logger.info(f"Loaded embedding model: {self.model_name}")
         except Exception as exc:

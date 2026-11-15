@@ -1,7 +1,7 @@
 """Indexes processed chunks and extracted facts into database and vector store."""
 
 from typing import List, Dict, Any
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session # type: ignore
 from app.database.models import StoryChunk, CanonEntity, CanonFact
 from app.database.vector_store import VectorStore
 from app.canon_graph.fact_store import FactStore

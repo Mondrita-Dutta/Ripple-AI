@@ -16,14 +16,14 @@ class LLMClient:
         self.provider = settings.LLM_PROVIDER.lower()
         self.model = settings.LLM_MODEL
 
-    def generate(self, prompt: str, temperature: float = None) -> str:
+    def generate(self, prompt: str, temperature: float = None) -> str: # pyright: ignore[reportArgumentType]
         """Generates text completion based on prompt."""
         temp = temperature if temperature is not None else settings.LLM_TEMPERATURE
 
         # 1. Anthropic Claude
         if self.provider == "anthropic" and settings.ANTHROPIC_API_KEY:
             try:
-                import anthropic
+                import anthropic # type: ignore
                 client = anthropic.Anthropic(api_key=settings.ANTHROPIC_API_KEY)
                 message = client.messages.create(
                     model=self.model,
@@ -38,7 +38,7 @@ class LLMClient:
         # 2. OpenAI or Local OpenAI-Compatible Server (Ollama / LM Studio)
         elif (self.provider in ("openai", "ollama")) and (settings.OPENAI_API_KEY or settings.OPENAI_BASE_URL):
             try:
-                import openai
+                import openai # type: ignore
                 client = openai.OpenAI(
                     api_key=settings.OPENAI_API_KEY or "local-key",
                     base_url=settings.OPENAI_BASE_URL,
@@ -55,7 +55,7 @@ class LLMClient:
         # 3. Google Gemini API
         elif self.provider == "gemini" and settings.GEMINI_API_KEY:
             try:
-                import httpx
+                import httpx # type: ignore
                 model_name = self.model
                 if not model_name or model_name in ("gemini-1.5-flash", "gemini-2.5-flash"):
                     model_name = "gemini-flash-lite-latest"
@@ -75,7 +75,7 @@ class LLMClient:
         # 4. Ollama Local Endpoint (Native HTTP - 100% Free & Local)
         elif self.provider == "ollama":
             try:
-                import httpx
+                import httpx # type: ignore
                 base_url = settings.OLLAMA_BASE_URL.rstrip("/")
                 payload = {
                     "model": settings.OLLAMA_MODEL,

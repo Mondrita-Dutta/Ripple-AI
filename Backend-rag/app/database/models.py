@@ -3,7 +3,7 @@
 import datetime
 import uuid
 from typing import Optional
-from sqlalchemy import (
+from sqlalchemy import ( # type: ignore
     Column,
     String,
     Text,
@@ -15,7 +15,7 @@ from sqlalchemy import (
     JSON,
     Enum as SqlEnum,
 )
-from sqlalchemy.orm import declarative_base, relationship
+from sqlalchemy.orm import declarative_base, relationship # type: ignore
 
 Base = declarative_base()
 

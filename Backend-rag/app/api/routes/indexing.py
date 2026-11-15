@@ -1,7 +1,7 @@
 """API route for indexing story chapters (Pipeline A)."""
 
 from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session # pyright: ignore[reportMissingImports]
 from app.database.connection import get_db
 from app.api.schemas.indexing import IndexChapterRequest, IndexChapterResponse
 from app.pipelines.indexing_pipeline import IndexingPipeline

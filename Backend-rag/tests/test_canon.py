@@ -1,8 +1,8 @@
 """Unit tests for CanonGraph operations and fact store."""
 
 import pytest
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine # type: ignore
+from sqlalchemy.orm import sessionmaker # type: ignore
 from app.database.models import Base, Story, CanonEntity, CanonRelationship
 from app.canon_graph.fact_store import FactStore
 from app.canon_graph.graph_service import CanonGraphService

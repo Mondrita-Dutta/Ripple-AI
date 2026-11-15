@@ -1,8 +1,8 @@
 """Unit tests for dense, sparse, and hybrid retrieval."""
 
 import pytest
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine # type: ignore
+from sqlalchemy.orm import sessionmaker # type: ignore
 from app.database.models import Base, Story, Chapter, StoryChunk
 from app.retrieval.sparse_retriever import SparseRetriever
 from app.retrieval.reranker import Reranker

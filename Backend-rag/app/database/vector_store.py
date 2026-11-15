@@ -2,7 +2,7 @@
 
 import math
 from typing import List, Tuple, Optional
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session # type: ignore
 from app.database.models import StoryChunk
 from app.core.logging import logger
 

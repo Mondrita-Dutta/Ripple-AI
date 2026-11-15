@@ -2,7 +2,7 @@
 
 import json
 from typing import Dict, Any, List
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session # type: ignore
 from app.database.models import ContinuityViolation
 from app.continuity.rules_engine import DeterministicRulesEngine
 from app.retrieval.graph_retriever import GraphRetriever
@@ -13,7 +13,7 @@ from app.generation.llm_client import LLMClient
 class ContradictionDetector:
     """Detects plot holes, timeline paradoxes, and character status violations."""
 
-    def __init__(self, llm_client: LLMClient = None):
+    def __init__(self, llm_client: LLMClient = None): # pyright: ignore[reportArgumentType]
         self.llm_client = llm_client or LLMClient()
 
     def analyze_manuscript(
@@ -22,7 +22,7 @@ class ContradictionDetector:
         story_id: str,
         chapter_index: int,
         text: str,
-        mentioned_characters: List[str] = None,
+        mentioned_characters: List[str] = None, # pyright: ignore[reportArgumentType]
     ) -> Dict[str, Any]:
         """Runs multi-tiered continuity audit on manuscript text."""
         violations: List[Dict[str, Any]] = []

@@ -1,7 +1,7 @@
 """Hybrid retrieval combining dense vector similarity and sparse lexical matching."""
 
 from typing import List, Dict, Any
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session # pyright: ignore[reportMissingImports]
 from app.database.models import StoryChunk
 from app.retrieval.dense_retriever import DenseRetriever
 from app.retrieval.sparse_retriever import SparseRetriever
@@ -12,7 +12,7 @@ from app.retrieval.query_processor import QueryProcessor
 class HybridRetriever:
     """Fuses dense vector results and sparse lexical results via Reciprocal Rank Fusion."""
 
-    def __init__(self, dense_retriever: DenseRetriever = None):
+    def __init__(self, dense_retriever: DenseRetriever = None): # pyright: ignore[reportArgumentType]
         self.dense = dense_retriever or DenseRetriever()
         self.sparse = SparseRetriever()
         self.graph = GraphRetriever()
