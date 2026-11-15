@@ -56,7 +56,9 @@ class LLMClient:
         elif self.provider == "gemini" and settings.GEMINI_API_KEY:
             try:
                 import httpx
-                model_name = self.model if "gemini" in self.model else "gemini-1.5-flash"
+                model_name = self.model
+                if not model_name or model_name in ("gemini-1.5-flash", "gemini-2.5-flash"):
+                    model_name = "gemini-flash-lite-latest"
                 url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={settings.GEMINI_API_KEY}"
                 payload = {
                     "contents": [{"parts": [{"text": prompt}]}],
