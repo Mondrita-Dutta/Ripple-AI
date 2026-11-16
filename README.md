@@ -29,6 +29,49 @@ Ripple connects a sleek React-based creative workspace with a high-performance *
 
 ---
 
+## 🎯 Problem Statement
+
+### The Problem: Story Continuity Breaks as Fictional Worlds Grow
+
+Writing a long-form novel, screenplay, or interconnected fictional universe is difficult to manage as its canon expands. Authors often work across many chapters, notes, character sheets, timelines, and worldbuilding documents. As the story grows, important details become scattered and increasingly hard to recall consistently.
+
+This creates several practical problems:
+
+- **Context fragmentation:** Character details, locations, artifacts, and events are spread across files and chapters.
+- **Lore retrieval is slow:** Finding exactly what happened earlier often means manually searching or rereading large sections.
+- **Continuity errors:** Characters may appear in the wrong place or time, facts may conflict, and established rules can be unintentionally changed.
+- **Disconnected relationships:** It is difficult to keep track of how characters, factions, places, and events influence one another.
+- **Generic AI answers:** A general-purpose chatbot may invent details or answer without grounding its response in the author's actual manuscript.
+
+The core challenge is therefore not simply generating more text—it is **preserving, retrieving, and reasoning over a story's established canon reliably as the narrative grows**.
+
+## 💡 Ripple AI's Solution
+
+**Ripple AI** turns a manuscript and its worldbuilding material into a connected, searchable narrative knowledge workspace.
+
+Instead of relying on an author's memory or repeatedly prompting a chatbot with the entire story, Ripple builds a structured knowledge layer from uploaded chapters and uses it to support grounded assistance:
+
+1. **Ingest & understand:** Upload `.txt` or `.md` chapters. Scene-aware processing breaks manuscripts into meaningful narrative chunks and extracts relevant canon facts.
+2. **Retrieve with context:** Hybrid Retrieval-Augmented Generation (dense semantic search + BM25 keyword search, enhanced with graph-aware context) finds the most relevant passages for a question.
+3. **Answer with evidence:** Lore Chat generates answers grounded in retrieved manuscript context and provides scene/chapter references so authors can verify details.
+4. **Check continuity:** The Continuity Auditor helps surface timeline conflicts, character-attribute mismatches, and possible lore contradictions across indexed material.
+5. **Explore connections:** CanonGraph visualizes relationships among characters, locations, factions, and events, making the story's knowledge network easier to inspect.
+6. **Organize universes:** Separate story spaces keep each fictional world's canon and material organized.
+
+### What Ripple Changes
+
+| Before Ripple | With Ripple AI |
+|---|---|
+| Manually search or reread chapters to recall details | Ask lore questions and retrieve relevant story passages |
+| Keep character, event, and worldbuilding notes disconnected | Explore connected canon facts and relationships |
+| Catch continuity mistakes through manual review | Run an assisted continuity audit to flag potential conflicts |
+| Depend on generic AI context that may hallucinate | Use manuscript-grounded retrieval and source references |
+| Manage growing stories across scattered documents | Maintain a searchable workspace for multiple story universes |
+
+> **In one sentence:** Ripple AI helps writers keep expanding stories coherent by connecting manuscript knowledge, grounded AI answers, continuity checks, and visual canon exploration in one workspace.
+
+---
+
 ## 🌟 Key Features
 
 * **💬 Lore Chat (RAG Assistant):** Grounded question-answering over your manuscript. Ask about character motivations, past events, artifacts, or locations, backed by exact scene citations.
